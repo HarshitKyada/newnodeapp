@@ -17,6 +17,10 @@ const addaddress = require("./routes/cart/addaddress");
 const removeaddress = require("./routes/cart/removeaddress");
 const getaddress = require("./routes/cart/getaddress");
 const updateaddress = require("./routes/cart/updateaddress");
+const generateinvoice = require("./routes/bill/generateinvoice");
+const getinvoice = require("./routes/bill/getinvoice");
+const payment = require("./routes/bill/payment");
+const trackorder = require("./routes/bill/trackorder");
 
 const app = express();
 const dbURI = process.env.MONGODB_URI;
@@ -46,6 +50,10 @@ app.use("/cart", addaddress);
 app.use("/cart", removeaddress);
 app.use("/cart", getaddress);
 app.use("/cart", updateaddress);
+app.use("/bill", generateinvoice);
+app.use("/bill", getinvoice);
+app.use("/bill", payment);
+app.use("/bill", trackorder);
 
 app.listen(5050, () => {
   console.log(`Server is running on http://localhost:${5050}`);

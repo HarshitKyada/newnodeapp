@@ -31,7 +31,7 @@ router.get("/getcart", async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Get cart API called successfully",
-      data: cartData.items,
+      data: cartData,
     });
   } catch (err) {
     res.status(500).json({
