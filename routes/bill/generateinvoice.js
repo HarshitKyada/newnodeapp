@@ -42,8 +42,6 @@ router.post("/generateinvoice", async (req, res) => {
     const shippingCharge = 120;
     const totalBill = price + gst + shippingCharge;
 
-    console.log("totalBill", totalBill);
-
     if (!billData) {
       const newBill = new Bill({
         user: isAuth?.email,

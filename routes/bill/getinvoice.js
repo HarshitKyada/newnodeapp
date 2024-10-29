@@ -19,7 +19,6 @@ router.get("/getinvoice/:id?", async (req, res) => {
 
   try {
     const invoiceData = await Bill.findOne({ user: isAuth.email });
-    console.log("invoiceData", isAuth);
     if (!invoiceData) {
       return res
         .status(404)

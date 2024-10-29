@@ -5,7 +5,6 @@ const Cart = require("../../models/Cart");
 const router = express.Router();
 
 router.delete("/removeaddress/:id", async (req, res) => {
-  console.log('first')
   const { token } = req.headers;
   const { id } = req.params;
 
