@@ -24,6 +24,7 @@ const authSchema = new mongoose.Schema({
       text: { type: String || Number },
       shippingCharge: { type: String || Number },
       totalPrice: { type: String || Number },
+      isPaid: {type: Boolean}
     },
   ],
 });

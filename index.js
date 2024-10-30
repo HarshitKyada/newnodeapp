@@ -21,6 +21,8 @@ const generateinvoice = require("./routes/bill/generateinvoice");
 const getinvoice = require("./routes/bill/getinvoice");
 const payment = require("./routes/bill/payment");
 const trackorder = require("./routes/bill/trackorder");
+const sendfile = require("./routes/bill/sendfile");
+const postfile = require("./routes/bill/postfile");
 
 const app = express();
 const dbURI = process.env.MONGODB_URI;
@@ -29,8 +31,6 @@ if (!dbURI) {
   process.exit(1);
 }
 mongoose.connect(dbURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
   serverSelectionTimeoutMS: 100000,
 });
 
@@ -54,6 +54,8 @@ app.use("/bill", generateinvoice);
 app.use("/bill", getinvoice);
 app.use("/bill", payment);
 app.use("/bill", trackorder);
+app.use("/bill", sendfile);
+app.use("/bill", postfile);
 
 app.listen(5050, () => {
   console.log(`Server is running on http://localhost:${5050}`);
